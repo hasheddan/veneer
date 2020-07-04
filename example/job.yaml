@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: veneer-example
+spec:
+  template:
+    spec:
+      containers:
+      - name: veneer-example
+        image: hasheddan/veneer-example:local
+        command: ["./veneer-example", "registry.upbound.io/crossplane/provider-gcp:v0.10.0"]
+        imagePullPolicy: Never
+      restartPolicy: Never

@@ -44,7 +44,7 @@ func main() {
 
 	// Create in memory filesystem.
 	fs := afero.NewMemMapFs()
-	err = veneer.ImageFs(fs, img)
+	err = veneer.ImageFs(img, fs)
 	if err != nil {
 		panic(err)
 	}
@@ -64,7 +64,7 @@ func main() {
 
 	// Only look at filesystem in top layer.
 	fs = afero.NewMemMapFs()
-	err = veneer.LayerFs(fs, layers[len(layers)-1])
+	err = veneer.LayerFs(layers[len(layers)-1], fs)
 	if err != nil {
 		panic(err)
 	}
